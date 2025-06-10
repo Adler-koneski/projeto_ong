@@ -18,5 +18,66 @@
      
     </nav>
   </header>
+  
+  <main>
+        <section class="intro">
+          <h2>Cadastro de Necessidade</h2>
+          <p>Preencha os campos abaixo para divulgar sua demanda por voluntariado.</p>
+       </section>
+
+         <form id="form" class="formulario">
+      <label>Nome da Instituição:
+        <input type="text" id="instituicao" required />
+      </label>
+
+      <label>Tipo de Ajuda:
+        <select id="tipoAjuda" required>
+          <option value="">Selecione</option>
+          <option>Educação</option>
+          <option>Saúde</option>
+          <option>Meio Ambiente</option>
+          <option>Doação de Alimentos</option>
+          <option>Doação de Roupas</option>
+          <option>Outros</option>
+        </select>
+      </label>
+
+      <label>Título da Necessidade:
+        <input type="text" id="titulo" required />
+      </label>
+
+      <label>Descrição Detalhada:
+        <textarea id="descricao" required></textarea>
+      </label>
+
+      <label>CEP:
+        <input type="text" id="cep" required />
+      </label>
+
+      <label>Rua:
+        <input type="text" id="rua" readonly />
+      </label>
+
+      <label>Bairro:
+        <input type="text" id="bairro" readonly />
+      </label>
+
+      <label>Cidade:
+        <input type="text" id="cidade" readonly />
+      </label>
+
+      <label>Estado:
+        <input type="text" id="estado" readonly />
+      </label>
+
+      <label>Contato:
+        <input type="text" id="contato" required />
+      </label>
+
+      <button type="submit" class="cta">Cadastrar</button>
+    </form>
+
+  </main>
+
 </body>
 </html>
