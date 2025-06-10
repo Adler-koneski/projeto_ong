@@ -85,6 +85,16 @@
         <a href="#"><img src="twitterr.jpg" alt="Twitter" /></a>
         </div>
     </footer>
+
+     <script>
+
+        let index = 0;
+        const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+      slides.forEach(s => s.classList.remove('active'));
+      slides[index = (index + 1) % slides.length].classList.add('active');
+    }, 3000);
+  </script>
     
 </body>
 </html>
