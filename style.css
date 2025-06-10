@@ -6,6 +6,101 @@ body {
   color: #333;
 }
 
+main {
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input, select, textarea, button {
+  padding: 8px;
+  font-size: 1em;
+}
+
+#lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  transition: border-color 0.2s;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: #0d47a1;
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.formulario button {
+  align-self: flex-start;
+  background-color: #0d47a1;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: #1565c0;
+}
+
+
+.card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+
 header {
   background-color: #0d47a1;
   color: white;
@@ -23,7 +118,173 @@ header {
 .logo {
   width: 115px;
   height: 115px;
-  border-radius: 50%;
+  border-radius: 50%; 
   object-fit: cover;
 }
 
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+nav .cta {
+  background-color: #ffcc00;
+  color: #0d47a1;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+
+.carousel {
+  max-width: 15%;
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.slide {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+
+.destaques {
+  padding: 40px 20px;
+  background-color: #e3f2fd;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card.causa {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card.causa:hover {
+  transform: translateY(-5px);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: #0d47a1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+footer .social img {
+  width: 24px;
+  margin: 0 8px;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+footer .social img:hover {
+  transform: scale(1.2);
+}
+
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+#pesquisa, #filtro {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+  max-width: 90%;
+}
+
+
+
+@media (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-container {
+    flex-direction: column;
+  }
+}
+
+.banner-voluntario {
+  background: linear-gradient(to right, #0d47a1, #1976d2);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.banner-conteudo h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.banner-conteudo p {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+}
+
+.cta-banner {
+  background-color: #ffcc00;
+  color: #0d47a1;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.cta-banner:hover {
+  background-color: #f4b400;
+}
+
+/* Animação suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
