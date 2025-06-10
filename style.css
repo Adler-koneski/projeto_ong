@@ -6,3 +6,23 @@ body {
   color: #333;
 }
 
+header {
+  background-color: #0d47a1;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  object-fit: cover;
+}
