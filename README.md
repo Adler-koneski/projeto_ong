@@ -1,4 +1,4 @@
-🌍 Conexão Voluntária
+🌍 Sementes do Amanhã
 Uma plataforma web que conecta ONGs e instituições sociais a voluntários dispostos a ajudar. O projeto foi desenvolvido como parte de um exercício acadêmico, com foco em HTML, CSS e JavaScript puro, utilizando a API ViaCEP para preenchimento automático de endereço.
 
 📌 Funcionalidades
