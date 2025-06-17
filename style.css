@@ -1,111 +1,31 @@
+/* Reset e Configurações Globais */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f7fa;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
   padding: 20px;
+  flex-grow: 1;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: auto;
-}
-
-label {
-  margin-bottom: 10px;
-}
-
-input, select, textarea, button {
-  padding: 8px;
-  font-size: 1em;
-}
-
-#lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.formulario {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.formulario label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.formulario input,
-.formulario select,
-.formulario textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-  transition: border-color 0.2s;
-}
-
-.formulario input:focus,
-.formulario select:focus,
-.formulario textarea:focus {
-  outline: none;
-  border-color: #0d47a1;
-}
-
-.formulario textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.formulario button {
-  align-self: flex-start;
-  background-color: #0d47a1;
-  color: white;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.formulario button:hover {
-  background-color: #1565c0;
-}
-
-
-.card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 8px;
-  width: 300px;
-  background-color: #f9f9f9;
-}
-
-
+/* Header e Navegação */
 header {
   background-color: #0d47a1;
   color: white;
   padding: 1em;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .header-container {
@@ -120,6 +40,7 @@ header {
   height: 115px;
   border-radius: 50%; 
   object-fit: cover;
+  border: 3px solid white;
 }
 
 nav {
@@ -128,36 +49,34 @@ nav {
 
 nav a {
   color: white;
-  margin: 0 10px;
+  margin: 0 15px;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
   color: #ffcc00;
+  border-bottom-color: #ffcc00;
 }
 
-nav .cta {
-  background-color: #ffcc00;
-  color: #0d47a1;
-  padding: 6px 12px;
-  border-radius: 5px;
-}
-
-
+/* Estilos da Página Inicial */
 .carousel {
-  max-width: 15%;
-  overflow: hidden;
-  height: 300px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  height: 400px;
   position: relative;
-   border-radius: 50%;
-   object-fit: cover;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 .slide {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   position: absolute;
   opacity: 0;
@@ -168,51 +87,204 @@ nav .cta {
   opacity: 1;
 }
 
+.intro {
+  background: white;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 2.2em;
+  color: #0d47a1;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+.banner-voluntario {
+  background: linear-gradient(to right, #0d47a1, #1976d2);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin: 40px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.banner-conteudo h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.banner-conteudo p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.cta-banner {
+  background-color: #ffcc00;
+  color: #0d47a1;
+  padding: 14px 30px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.cta-banner:hover {
+  background-color: #f4b400;
+  transform: scale(1.05);
+}
 
 .destaques {
   padding: 40px 20px;
-  background-color: #e3f2fd;
   text-align: center;
+}
+
+.destaques h2 {
+  font-size: 2.2em;
+  color: #0d47a1;
+  margin-bottom: 30px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 }
 
-.card.causa {
-  background: white;
+/* Estilo de Card Geral (para a página de necessidades) */
+.card {
+  border: 1px solid #ddd;
   padding: 20px;
-  border-radius: 15px;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  width: 320px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
-.card.causa:hover {
+.card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
+.card h3 {
+  color: #0d47a1;
+  margin-top: 0;
+}
+
+/* Card Específico para Causas em Destaque */
+.card.causa {
+  border: none;
+  border-top: 4px solid #0d47a1;
+}
+
+.card.causa h3 {
+  font-size: 1.4em;
+}
+
+/* Página de Cadastro (Formulário) */
+.formulario {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-footer {
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: #0d47a1;
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.2);
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formulario button {
+  align-self: flex-start;
   background-color: #0d47a1;
   color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: #1565c0;
+}
+
+/* Página de Necessidades (Filtros) */
+.filtros {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0 30px 0;
+  flex-wrap: wrap;
+}
+
+#pesquisa, #filtro {
+  padding: 12px;
+  font-size: 1em;
+  width: 280px;
+  max-width: 90%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Rodapé */
+footer {
+  background-color: #343a40;
+  color: white;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   margin-top: auto;
 }
 
 footer .social img {
-  width: 24px;
-  margin: 0 8px;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
   transition: transform 0.3s ease;
   border-radius: 50%;
 }
@@ -221,70 +293,38 @@ footer .social img:hover {
   transform: scale(1.2);
 }
 
-
-.filtros {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px;
-  flex-wrap: wrap;
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-#pesquisa, #filtro {
-  padding: 10px;
-  font-size: 1em;
-  width: 250px;
-  max-width: 90%;
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+  nav a {
+    margin: 0 8px;
+  }
+  .carousel {
+    height: 300px;
+  }
+  .intro, .formulario {
+    padding: 20px;
+  }
+  .banner-conteudo h2 {
+    font-size: 2em;
+  }
 }
-
-
 
 @media (max-width: 600px) {
   .cards {
     flex-direction: column;
     align-items: center;
   }
-
-  .header-container {
-    flex-direction: column;
+  .card {
+    width: 90%;
+    max-width: 320px;
   }
-}
-
-.banner-voluntario {
-  background: linear-gradient(to right, #0d47a1, #1976d2);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-  margin-top: 40px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.banner-conteudo h2 {
-  font-size: 2em;
-  margin-bottom: 15px;
-}
-
-.banner-conteudo p {
-  font-size: 1.1em;
-  margin-bottom: 25px;
-}
-
-.cta-banner {
-  background-color: #ffcc00;
-  color: #0d47a1;
-  padding: 12px 25px;
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.cta-banner:hover {
-  background-color: #f4b400;
-}
-
-/* Animação suave */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
