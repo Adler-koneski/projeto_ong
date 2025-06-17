@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Lógica do Carrossel (Página Inicial)
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    let index = 0;
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+      setInterval(() => {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index = (index + 1) % slides.length].classList.add('active');
+      }, 3000);
+    }
+  }
+
+  // Lógica do Formulário de Cadastro (Página de Cadastro)
   const cepInput = document.getElementById("cep");
   const form = document.getElementById("form");
 
@@ -44,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Lógica da Listagem de Necessidades (Página de Necessidades)
   const listaDiv = document.getElementById("lista");
   if (listaDiv) {
     const dados = JSON.parse(localStorage.getItem("necessidades") || "[]");
@@ -77,4 +92,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("pesquisa").addEventListener("input", render);
     render();
   }
-}); 
+});
