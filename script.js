@@ -20,13 +20,39 @@ document.addEventListener("DOMContentLoaded", () => {
     cepInput.addEventListener("blur", async () => {
       const cep = cepInput.value.replace(/\D/g, "");
       if (cep.length === 8) {
-        const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = await res.json();
-        if (!data.erro) {
-          document.getElementById("rua").value = data.logradouro;
-          document.getElementById("bairro").value = data.bairro;
-          document.getElementById("cidade").value = data.localidade;
-          document.getElementById("estado").value = data.uf;
+        try {
+          const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+          const data = await res.json();
+          
+          const ruaInput = document.getElementById("rua");
+          const bairroInput = document.getElementById("bairro");
+          const cidadeInput = document.getElementById("cidade");
+          const estadoInput = document.getElementById("estado");
+
+          if (!data.erro) {
+            ruaInput.value = data.logradouro;
+            bairroInput.value = data.bairro;
+            cidadeInput.value = data.localidade;
+            estadoInput.value = data.uf;
+
+            // --- MELHORIA ADICIONADA AQUI ---
+            // Remove o atributo 'readonly' para permitir a edição
+            ruaInput.readOnly = false;
+            bairroInput.readOnly = false;
+            cidadeInput.readOnly = false;
+            estadoInput.readOnly = false;
+            
+          } else {
+            alert("CEP não encontrado. Por favor, digite os dados de endereço manualmente.");
+             // Garante que os campos fiquem editáveis se o CEP falhar
+            ruaInput.readOnly = false;
+            bairroInput.readOnly = false;
+            cidadeInput.readOnly = false;
+            estadoInput.readOnly = false;
+          }
+        } catch (error) {
+          console.error("Erro ao buscar CEP:", error);
+          alert("Ocorreu um erro ao buscar o CEP. Tente novamente ou digite o endereço manualmente.");
         }
       }
     });
