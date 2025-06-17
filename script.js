@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cidadeInput.value = data.localidade;
             estadoInput.value = data.uf;
 
-            // --- MELHORIA ADICIONADA AQUI ---
             // Remove o atributo 'readonly' para permitir a edição
             ruaInput.readOnly = false;
             bairroInput.readOnly = false;
@@ -62,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
+      // Objeto 'necessidade' atualizado para incluir o número
       const necessidade = {
         instituicao: form.instituicao.value,
         tipoAjuda: form.tipoAjuda.value,
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         descricao: form.descricao.value,
         cep: form.cep.value,
         rua: form.rua.value,
+        numero: form.numero.value, // CAMPO ADICIONADO AQUI
         bairro: form.bairro.value,
         cidade: form.cidade.value,
         estado: form.estado.value,
@@ -102,13 +103,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((item) => {
           const card = document.createElement("div");
           card.className = "card";
+          // Renderização do card atualizada para incluir o número
           card.innerHTML = `
             <h3>${item.titulo}</h3>
             <p><strong>Instituição:</strong> ${item.instituicao}</p>
             <p><strong>Tipo:</strong> ${item.tipoAjuda}</p>
             <p><strong>Descrição:</strong> ${item.descricao}</p>
             <p><strong>Contato:</strong> ${item.contato}</p>
-            <p><strong>Endereço:</strong> ${item.rua}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
+            <p><strong>Endereço:</strong> ${item.rua}, nº ${item.numero}, ${item.bairro}, ${item.cidade} - ${item.estado}</p>
           `;
           listaDiv.appendChild(card);
         });
